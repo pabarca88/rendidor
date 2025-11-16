@@ -137,7 +137,10 @@ export const liquidacionTipo2Parser: PdfParser = {
       ).map((m) => normalizeMoneyToNumber(m[1]));
 
       // tomar solo valores grandes típicos de imponible
-      const candidates = allNums.filter((n) => n > 300000);
+    const candidates = allNums
+    .filter((n): n is number => n !== null) // ← filtro seguro
+    .filter((n) => n > 300000);
+
 
       if (candidates.length) {
         totalImponible = Math.max(...candidates);
