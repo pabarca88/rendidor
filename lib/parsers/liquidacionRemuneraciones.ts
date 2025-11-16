@@ -212,6 +212,7 @@ export const liquidacionRemuneracionesParser: PdfParser = {
       nombreReceptor: nombreTrabajador,
 
       fecha: periodo,
+      // @ts-ignore
       numero,
 
       total: totalImponible,
