@@ -5,28 +5,26 @@ import { notaCreditoElectronicaParser } from './notaCreditoElectronica';
 import { facturaSiiUniversalParser } from "./facturaSiiUniversal";
 import { liquidacionRemuneracionesParser } from "./liquidacionRemuneraciones";
 import { liquidacionTipo2Parser } from "./liquidacionTipo2";
-
-// import { facturaAfectaElectronicaParser } from './facturaAfectaElectronica';
-// import { facturaElectronicaModernaParser } from './facturaElectronicaModerna';
-// import { facturaElectronicaSimpleParser } from './facturaElectronicaSimple';
-// import { facturaElectronicaRetailParser } from './facturaElectronicaRetail';
+import { liquidacionTipo3Parser } from "./liquidacionTipo3";
 
 export const parsers = [
-  siiClasicoParser,              // boletas honorarios
-  notaCreditoElectronicaParser, // NC
-  facturaSiiUniversalParser,    // TODAS las facturas SII
+  siiClasicoParser,
+  notaCreditoElectronicaParser,
+  facturaSiiUniversalParser,
   liquidacionRemuneracionesParser,
-   liquidacionTipo2Parser, 
+  liquidacionTipo2Parser,
+  liquidacionTipo3Parser, // 👈 nuevo
 ];
-
 
 export const PARSERS: PdfParser[] = [
   siiClasicoParser,
   siiVarBParser,
   facturaSiiUniversalParser,
   notaCreditoElectronicaParser,
-  liquidacionRemuneracionesParser
+  liquidacionRemuneracionesParser,
+  liquidacionTipo3Parser, // 👈 nuevo
 ];
+
 
 export function detectBestParser(text: string): { parser: PdfParser; confidence: number } {
   let best = PARSERS[0];
