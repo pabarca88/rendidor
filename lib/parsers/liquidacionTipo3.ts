@@ -31,7 +31,7 @@ export const liquidacionTipo3Parser: PdfParser = {
 
     return score;
   },
-
+  // @ts-ignore
   parse(raw: string) {
     const text = clean(raw);
 
